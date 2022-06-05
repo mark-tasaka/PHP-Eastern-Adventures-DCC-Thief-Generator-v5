@@ -3,6 +3,11 @@ The Dungeon Crawl Classics Eastern Adventures Redux Thief [Ninja] Character Gene
 
 --------------
 
+Update 1.01: 2022-06-05
+
+Updates to dccThief.php, thief.css, classDetails.php, languages.php and thief.png.  File thiefAbilities.php added.
+
+
 Initial Commit: 2022-06-02
 
 The intial commit for the DCC Thief Character Generator version 5.
