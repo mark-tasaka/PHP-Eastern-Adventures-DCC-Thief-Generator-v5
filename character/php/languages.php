@@ -1,5 +1,5 @@
 <?php
-
+/*Thief Languages */
 
 function getLanguages($intMod, $luckMod, $luckySign, $alignment, $intelligence)
 {
@@ -7,8 +7,9 @@ function getLanguages($intMod, $luckMod, $luckySign, $alignment, $intelligence)
         
         $languages = array();
         array_push($languages, 'Common');
+        array_push($languages, 'Thieves Cant');
 
-        $languagesAvailable = array("Amabie", "Bakemono", "Kappa", "Karura", "Kitsune", "Komainu", "Koropokuru", "Kobold", "Mikoshi-nyūdō ", "Mizuchi", "Mujina", "Namahage", "Nekomata", "Ningyo", "Ogre-magi", "Oni", "Onikuma ", "Shojo", "Tengu");
+        $languagesAvailable = array("Amabie", "Bakemono", "Bakeneko", "Jorōgumo", "Kappa", "Karura", "Kitsune", "Komainu", "Koropokuru", "Mikoshi-nyūdō ", "Mizuchi", "Mujina", "Namahage", "Nekomata", "Ningyo", "Nure-onna", "Ogre-magi", "Oni", "Onikuma ", "Shojo", "Tengu", "Tsuchigumo");
 
         $alignmentTongue = "Alignment Tongue (" . $alignment . ")";
 

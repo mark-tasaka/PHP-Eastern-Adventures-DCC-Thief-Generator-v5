@@ -38,6 +38,7 @@
     include 'php/nameSelect.php';
     include 'php/gender.php';
     include 'php/languages.php';
+    include 'php/thiefAbilities.php';
     
     
             
@@ -264,11 +265,12 @@
 
        $criticalDie = criticalDie($level);
 
-       $threat = threatRange($level);
+      // $threat = threatRange($level);
+       $luckDie = luckDie($level);
 
        $actionDice = actionDice($level);
 
-       $attackBonus = deedDie($level);
+       $attackBonus = attackBonus($level);
 
        $luckySign = array();
        $luckySign = getBirthAugur();
@@ -314,8 +316,8 @@
 
        $meleeHitLuckyBonus = meleeAttackLuckSign($luckMod, $luckySign[0]);
 
-       //$meleeToHit = $attackBonus + $meleeHitLuckyBonus + $strengthMod;
-       $meleeToHit =$meleeHitLuckyBonus + $strengthMod;
+       $meleeToHit = $attackBonus + $meleeHitLuckyBonus + $strengthMod;
+       //$meleeToHit =$meleeHitLuckyBonus + $strengthMod;
 
        $meleeDamageLuckyBonus = meleeDamageLuckSign($luckMod, $luckySign[0]);
 
@@ -324,8 +326,8 @@
        
         $missileHitLuckyBonus = missileAttackLuckSign($luckMod, $luckySign[0]);
 
-        //$missileToHit = $attackBonus + $missileHitLuckyBonus + $agilityMod;
-        $missileToHit = $missileHitLuckyBonus + $agilityMod;
+        $missileToHit = $attackBonus + $missileHitLuckyBonus + $agilityMod;
+        //$missileToHit = $missileHitLuckyBonus + $agilityMod;
 
         $missileDamageLuckyBonus = missileDamageLuckSign($luckMod, $luckySign[0]);
 
@@ -353,14 +355,14 @@
 
        $tradeGoodsAddition = tradeGoodsAddition($profession, $trainedWeapon);
 
-       
+       /*
        if(isset($_POST["theLuckyWeapon"]))
        {
            $luckyWeaponNumberString = $_POST["theLuckyWeapon"];
        } 
 
        $luckyWeaponNumber = (int)$luckyWeaponNumberString;
-       $luckyWeapon = getWeapon($luckyWeaponNumber)[0];
+       $luckyWeapon = getWeapon($luckyWeaponNumber)[0];*/
 
 
 
@@ -371,11 +373,6 @@
     //For Random Select weapon
     if(isset($_POST['thecheckBoxRandomWeaponsV3']) && $_POST['thecheckBoxRandomWeaponsV3'] == 1) 
     {
-        $weaponArray = getRandomWeapons($luckyWeaponNumber);
-
-    }
-    else
-    {
         if(isset($_POST["theWeapons"]))
         {
             foreach($_POST["theWeapons"] as $weapon)
@@ -384,7 +381,6 @@
             }
         }
     }
-
 
     
     
@@ -687,7 +683,7 @@
         
         <span id="attackBonus">
         <?php
-               // $attackBonus = getModSign($attackBonus);
+                $attackBonus = getModSign($attackBonus);
                 echo $attackBonus;
            ?>
            </span>
@@ -740,7 +736,7 @@
         
         <span id="threatRange">
             <?php
-                echo $threat;
+                echo $luckDie;
             ?>
         </span>
 
@@ -801,13 +797,6 @@
             ?>
             </span>
 
-            <span id="luckyWeapon">
-            <?php
-                echo $luckyWeapon;
-            ?>
-        </span>
-        
-       
        <span id="weaponsList">
            <?php
            

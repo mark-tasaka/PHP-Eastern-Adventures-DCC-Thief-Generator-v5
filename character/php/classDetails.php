@@ -16,12 +16,12 @@ function getHitPoints($level, $staminaMod)
 
     for($i = 0; $i < $level; ++$i)
     {
-        $levelHP = rand(5, 12);
+        $levelHP = rand(2, 6);
         $levelHP += $staminaMod;
 
-        if($levelHP < 3)
+        if($levelHP < 2)
         {
-            $levelHP = 3;
+            $levelHP = 2;
         }
 
         $hitPoints += $levelHP ;
@@ -32,28 +32,39 @@ function getHitPoints($level, $staminaMod)
 
 }
 
+
 function savingThrowReflex($level)
 {
     $reflex = 0;
-
-    if($level >= 1 && $level <= 3)
+    
+    if($level >= 1 && $level <= 2)
     {
         $reflex = 1;
     }
     
-    if($level >= 4 && $level <= 6)
+    if($level >= 3 && $level <= 4)
     {
         $reflex = 2;
     }
-
-    if($level >= 7 && $level <= 9)
+    
+    if($level == 5)
     {
         $reflex = 3;
     }
 
-    if($level >= 10)
+    if($level >= 6 && $level <= 7)
     {
         $reflex = 4;
+    }
+
+    if($level >= 8 && $level <= 9)
+    {
+        $reflex = 5;
+    }
+
+    if($level >= 10)
+    {
+        $reflex = 6;
     }
 
     return $reflex;
@@ -64,35 +75,25 @@ function savingThrowReflex($level)
 function savingThrowFort($level)
 {
     $fort = 0;
-
-    if($level >= 1 && $level <= 2)
+    
+    if($level >= 1 && $level <= 3)
     {
         $fort = 1;
     }
     
-    if($level >= 3 && $level <= 4)
+    if($level >= 4 && $level <= 6)
     {
         $fort = 2;
     }
-    
-    if($level == 5)
+
+    if($level >= 7 && $level <= 9)
     {
         $fort = 3;
     }
 
-    if($level >= 6 && $level <= 7)
-    {
-        $fort = 4;
-    }
-
-    if($level >= 8 && $level <= 9)
-    {
-        $fort = 5;
-    }
-
     if($level >= 10)
     {
-        $fort = 6;
+        $fort = 4;
     }
 
     return $fort;
@@ -129,151 +130,181 @@ function criticalDie($level)
 
     if($level == 1)
     {
-        $critical = "1d12/III";
+        $critical = "1d10/II";
     }
 
     if($level == 2)
     {
-        $critical = "1d14/III";
+        $critical = "1d12/II";
     }
 
     if($level == 3)
     {
-        $critical = "1d16/IV";
+        $critical = "1d14/II";
     }
 
     if($level == 4)
     {
-        $critical = "1d20/IV";
+        $critical = "1d16/II";
     }
 
     if($level == 5)
     {
-        $critical = "1d24/V";
+        $critical = "1d20/II";
     }
 
-    if($level >= 6 && $level <= 7)
+    if($level == 6)
     {
-        $critical = "1d30/V";
+        $critical = "1d24/II";
     }
 
-    if($level >= 8)
+    if($level == 7)
     {
-        $critical = "2d20/V";
+        $critical = "1d30/II";
+    }
+
+    if($level == 8)
+    {
+        $critical = "1d30+2/II";
+    }
+
+    if($level == 9)
+    {
+        $critical = "1d30+4/II";
+    }
+
+    if($level == 10)
+    {
+        $critical = "1d30+6/II";
     }
 
     return $critical;
 
 }
 
-function deedDie($level)
+function luckDie($level)
 {
-    $deedDie = "";
+    $luckDie = "";
 
     switch($level)
     {
         case 1:
-            $deedDie = "+d3";
+            $luckDie = "d3";
         break;
         
         case 2:
-            $deedDie = "+d4";
+            $luckDie = "d4";
         break;
         
         case 3:
-            $deedDie = "+d5";
+            $luckDie = "d5";
         break;
         
         case 4:
-            $deedDie = "+d6";
+            $luckDie = "d6";
         break;
         
         case 5:
-            $deedDie = "+d7";
+            $luckDie = "d7";
         break;
         
         case 6:
-            $deedDie = "+d8";
+            $luckDie = "d8";
         break;
         
         case 7:
-            $deedDie = "+d10+1";
+            $luckDie = "d10";
         break;
 
         case 8:
-            $deedDie = "+d10+2";
+            $luckDie = "d12";
         break;
         
         case 9:
-            $deedDie = "+d10+3";
+            $luckDie = "d14";
         break;
         
         case 10:
-            $deedDie = "+d10+4";
+            $luckDie = "d16";
         break;
 
         default:
-        $deedDie = "";
+        $luckDie = "";
     }
 
-    return $deedDie;
+    return $luckDie;
 }
 
 function actionDice($level)
 {
     $actionDice = "";
 
-    if($level <= 4)
+    if($level <= 5)
     {
         $actionDice = "1d20";
     }
 
-    if($level == 5)
+    if($level == 6)
     {
         $actionDice = "1d20+1d14";
     }
 
-    if($level == 6)
+    if($level == 7)
     {
         $actionDice = "1d20+1d16";
     }
 
-    if($level >= 7 && $level <= 9)
+    if($level >= 8)
     {
         $actionDice = "1d20+1d20";
-    }
-
-    if($level == 10)
-    {
-        $actionDice = "1d20+1d20+1d14";
     }
 
     return $actionDice;
 }
 
 
-function threatRange($level)
+function attackBonus ($level)
 {
-    $threat = "";
+    $attackBonus = 0;
 
-    if($level <= 4)
+    if($level == 2)
     {
-        $threat = "19-20";
+        $attackBonus = 1;
     }
 
-    if($level >= 5 && $level <= 8)
+    if($level >= 3 && $level <=4)
     {
-        $threat = "18-20";
+        $attackBonus = 2;
     }
 
-    if($level >= 9)
+    if($level == 5)
     {
-        $threat = "17-20";
+        $attackBonus = 3;
     }
 
-    return $threat;
+    if($level == 6)
+    {
+        $attackBonus = 4;
+    }
 
+    if($level >= 7 && $level <= 8)
+    {
+        $attackBonus = 5;
+    }
+
+    if($level == 9)
+    {
+        $attackBonus = 6;
+    }
+
+    if($level == 10)
+    {
+        $attackBonus = 7;
+    }
+
+    return $attackBonus;
 }
+
 
 function title($level, $alignment)
 {
@@ -284,23 +315,23 @@ function title($level, $alignment)
 
         if($level == 1)
         {
-            $title = "Squire";
+            $title = "Bravo";
         }
         else if($level == 2)
         {
-            $title = "Champion";
+            $title = "Apprentice";
         }
         else if($level == 3)
         {
-            $title = "Knight";
+            $title = "Rogue";
         }
         else if($level == 4)
         {
-            $title = "Cavalier";
+            $title = "Capo";
         }
         else
         {
-            $title = "Paladin";
+            $title = "Boss";
         }
 
     }
@@ -309,23 +340,23 @@ function title($level, $alignment)
     {
         if($level == 1)
         {
-            $title = "Wilding";
+            $title = "Beggar";
         }
         else if($level == 2)
         {
-            $title = "Barbarian";
+            $title = "Cutpurse";
         }
         else if($level == 3)
         {
-            $title = "Berserker";
+            $title = "Burglar";
         }
         else if($level == 4)
         {
-            $title = "Headperson";
+            $title = "Robber";
         }
         else
         {
-            $title = "Chieftain";
+            $title = "Swindler";
         }
     }
 
@@ -333,23 +364,23 @@ function title($level, $alignment)
     {
         if($level == 1)
         {
-            $title = "Bandit";
+            $title = "Thug";
         }
         else if($level == 2)
         {
-            $title = "Brigand";
+            $title = "Murderer";
         }
         else if($level == 3)
         {
-            $title = "Marauder";
+            $title = "Cutthroat";
         }
         else if($level == 4)
         {
-            $title = "Ravager";
+            $title = "Executioner";
         }
         else
         {
-            $title = "Reaver";
+            $title = "Assassin";
         }
     }
 
@@ -363,33 +394,23 @@ function titleEastern($level, $gender)
 
     if($level == 1)
     {
-        $title = "Student";
+        $title = "Infiltrator";
     }
     else if($level == 2)
     {
-        $title = "Disciple";
+        $title = "Agent";
     }
     else if($level == 3)
     {
-        if($gender == "0")
-        {
-            $title = "Swordsman";
-        }
-        else if($gender == "1")
-        {
-            $title = "Swordswoman";
-        }
-        else{
-            $title = "Swordsperson";
-        }
+        $title = "Saboteur";
     }
     else if($level == 4)
     {
-        $title = "Sword Master";
+        $title = "Assassin";
     }
     else
     {
-        $title = "Sword Saint";
+        $title = "Shinobi";
     }
 
     return $title;
