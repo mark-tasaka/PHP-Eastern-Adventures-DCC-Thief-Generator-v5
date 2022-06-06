@@ -1,5 +1,21 @@
 <?php
 
+function getThiefPath($alignment)
+{
+    if($alignment === "Lawful")
+    {
+        return "Path of the Boss";
+    }
+    else if($alignment === "Neutral")
+    {
+        return "Path of the Swindler";
+    }
+    else
+    {
+        return "Path of the Assassin";
+    }
+}
+
 function getBackstabArray ($alignment)
 {
     if($alignment == "Lawful")

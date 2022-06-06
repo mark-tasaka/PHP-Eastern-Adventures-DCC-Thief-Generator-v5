@@ -31,55 +31,37 @@
         $a25 = array("Tonfa", "1d4x2");
         $a26 = array("Sai", "1d2x2");
         $a27 = array("Kama", "1d4x2");
+        $a28 = array("Kusarigama", "1d4/3d4");
 
 
-        $array1= array($a00, $a01, $a02, $a03, $a04, $a05, $a06, $a07, $a08, $a09, $a10, $a11, $a12, $a13, $a14, $a15, $a16, $a17, $a18, $a19, $a20, $a21, $a22, $a23, $a24, $a25, $a26, $a27);
+        $array1= array($a00, $a01, $a02, $a03, $a04, $a05, $a06, $a07, $a08, $a09, $a10, $a11, $a12, $a13, $a14, $a15, $a16, $a17, $a18, $a19, $a20, $a21, $a22, $a23, $a24, $a25, $a26, $a27, $a28);
         
         return $array1[$input];
         
     }
 
 
-
-function getRandomWeapons($luckyWeaponNumber)
-{
-    //cast to int
-    //unneccesary with php, but good practice
-    $luckyWeapon = (int)$luckyWeaponNumber;
-
-    $weaponsArray = array();
-
-    for($i = 0; $i <= 27; ++$i)
+    function getRandomWeapons()
     {
-        if($i != $luckyWeapon)
+       
+        $weaponsArray = array(1, 2, 4, 5, 6, 8, 13, 17, 18, 20, 23, 24, 25, 26, 27, 28);
+    
+        //shuffle $weaponsArray
+        shuffle($weaponsArray); 
+    
+        $numberOfWeapons = rand (3, 6);
+    
+        $weaponsHas = array();
+    
+        for($j = 0; $j < $numberOfWeapons; ++$j)
         {
-            array_push($weaponsArray, $i);
-        }
-    }
-
-    //shuffle $weaponsArray
-    shuffle($weaponsArray); 
-
-    $numberOfWeapons = rand (2, 6);
-
-    $weaponsHas = array();
-
-    array_push($weaponsHas, $luckyWeapon);
-
-    for($j = 0; $j < $numberOfWeapons; ++$j)
-    {
-        $weapon = $weaponsArray[$j];
-        
-        if($weapon !== $luckyWeapon)
-        {
+            $weapon = $weaponsArray[$j];
             array_push($weaponsHas, $weapon);
         }
+    
+        return $weaponsHas;
     }
-
-    return $weaponsHas;
-}
-
-
+    
 
 
 ?>

@@ -299,7 +299,6 @@
        $speed -= $speedPenality;
 
        $initiative = getInit($agilityMod, $luckMod, $luckySign[0]);
-       $initiative += $level; 
 
 
        //Hit Points
@@ -364,6 +363,59 @@
        $luckyWeaponNumber = (int)$luckyWeaponNumberString;
        $luckyWeapon = getWeapon($luckyWeaponNumber)[0];*/
 
+       $thiefPath = getThiefPath($alignment);
+
+       $backstabArray = getBackstabArray ($alignment);
+       $backstab = $backstabArray[$level];
+
+       $sneakSilentlyArray = getSneakSilentlyArray ($alignment);
+       $sneakSilently = $sneakSilentlyArray[$level];
+       $sneakSilently += $agilityMod;
+
+       $hideInShadowArray = getHideInShadowsArray ($alignment);
+       $hideInShadows = $hideInShadowArray[$level];
+       $hideInShadows += $agilityMod;
+
+       $pickPocketArray = getHideInShadowsArray ($alignment);
+       $pickPocket = $pickPocketArray[$level];
+       $pickPocket += $agilityMod;
+
+       $climbArray = getClimbArray ($alignment);
+       $climb = $climbArray[$level];
+       $climb += $agilityMod;
+
+       $pickLockArray = getPickLockArray ($alignment);
+       $pickLock = $pickLockArray[$level];
+       $pickLock += $agilityMod;
+
+       $findTrapArray = getFindTrapArray ($alignment);
+       $findTrap = $findTrapArray[$level];
+       $findTrap += $intelligenceMod;
+
+       $disableTrapArray = getDisableTrapArray ($alignment);
+       $disableTrap = $disableTrapArray[$level];
+       $disableTrap += $agilityMod;
+
+       $forgeDocArray = getForgeDocArray ($alignment);
+       $forgeDoc = $forgeDocArray[$level];
+       $forgeDoc += $agilityMod;
+
+       $disguiseSelfArray = getDisguiseSelfArray ($alignment);
+       $disguiseSelf = $disguiseSelfArray[$level];
+       $disguiseSelf += $personalityMod;
+
+       $readLanguagesArray = getReadLanguagesArray ($alignment);
+       $readLanguages = $readLanguagesArray[$level];
+       $readLanguages += $intelligenceMod;
+
+       $handlePoisonArray = getHandlePoisonArray ($alignment);
+       $handlePoison = $handlePoisonArray[$level];
+
+       $castSpellScrollArray = getCastSpellScrollArray ($alignment);
+       $castSpellScroll = $castSpellScrollArray[$level];
+       $modToCheckScroll = thiefSpellScrollMod ($intelligenceMod);
+
+
 
 
         $weaponArray = array();
@@ -372,6 +424,11 @@
     
     //For Random Select weapon
     if(isset($_POST['thecheckBoxRandomWeaponsV3']) && $_POST['thecheckBoxRandomWeaponsV3'] == 1) 
+    {
+        $weaponArray = getRandomWeapons();
+
+    }
+    else
     {
         if(isset($_POST["theWeapons"]))
         {
@@ -855,6 +912,91 @@
            ?>
        </span>
 
+       <span id="thiefPath">
+       <?php
+       echo $thiefPath;
+       ?>
+       </span>
+
+       <span id="backstab">
+            <?php
+            $backstab = getModSign($backstab);
+           echo $backstab;
+           ?></span>
+
+
+       <span id="sneakSilently">
+            <?php
+            $sneakSilently = getModSign($sneakSilently);
+           echo $sneakSilently;
+           ?></span>
+
+       <span id="hideInShadows">
+            <?php
+            $hideInShadows = getModSign($hideInShadows);
+           echo $hideInShadows;
+           ?></span>
+
+       <span id="pickPocket">
+            <?php
+            $pickPocket = getModSign($pickPocket);
+           echo $pickPocket;
+           ?></span>
+
+       <span id="climb">
+            <?php
+            $climb = getModSign($climb);
+           echo $climb;
+           ?></span>
+
+       <span id="pickLock">
+            <?php
+            $pickLock = getModSign($pickLock);
+           echo $pickLock;
+           ?></span>
+
+       <span id="findTrap">
+            <?php
+            $findTrap = getModSign($findTrap);
+           echo $findTrap;
+           ?></span>
+
+       <span id="disableTrap">
+            <?php
+            $disableTrap = getModSign($disableTrap);
+           echo $disableTrap;
+           ?></span>
+
+       <span id="forgeDoc">
+            <?php
+            $forgeDoc = getModSign($forgeDoc);
+           echo $forgeDoc;
+           ?></span>
+
+       <span id="disguiseSelf">
+            <?php
+            $disguiseSelf = getModSign($disguiseSelf);
+           echo $disguiseSelf;
+           ?></span>
+
+       <span id="readLanguages">
+            <?php
+            $readLanguages = getModSign($readLanguages);
+           echo $readLanguages;
+           ?></span>
+
+       <span id="handlePoison">
+            <?php
+            $handlePoison = getModSign($handlePoison);
+           echo $handlePoison;
+           ?></span>
+
+       <span id="castSpellScroll">
+            <?php
+           echo $castSpellScroll . $modToCheckScroll;
+           ?></span>
+
+       
 
        
 	</section>

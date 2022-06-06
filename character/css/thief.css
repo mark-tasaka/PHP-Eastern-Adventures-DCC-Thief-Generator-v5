@@ -79,7 +79,7 @@ body{
 #profession{
     position:absolute;
     top: 163px;
-    left: 415px;
+    left: 395px;
 	font-size: 0.85em;
 }
 
@@ -206,7 +206,7 @@ body{
 #abilityScoreGeneration{
     position:absolute;
     top: 1145px;
-    left: 410px;
+    left: 680px;
     font-size: 0.5em;
     width: 240px;
 }
@@ -456,14 +456,14 @@ body{
 #threatRange{
     position:absolute;
     top: 227px;
-    left: 550px;
+    left: 585px;
     font-size: 0.9em;
 }
 
 #attackBonus{
     position:absolute;
     top: 227px;
-    left: 450px;
+    left: 470px;
     font-size: 0.9em;
 }
 
@@ -532,94 +532,100 @@ body{
 	font-size: 0.5em;
 }
 
+#thiefPath{
+    position:absolute;
+    top: 655px;
+    left: 415px;
+    font-size: 0.8em;
+}
 
 #backstab{
     position:absolute;
-    top: 686px;
-    left: 505px;
+    top: 678px;
+    left: 555px;
     font-size: 0.8em;
 }
 
 #sneakSilently{
     position:absolute;
-    top: 716px;
-    left: 505px;
+    top: 702px;
+    left: 555px;
     font-size: 0.8em;
 }
 
 #hideInShadows{
     position:absolute;
-    top: 746px;
-    left: 505px;
+    top: 725px;
+    left: 555px;
     font-size: 0.8em;
 }
 
 #pickPocket{
     position:absolute;
-    top: 776px;
-    left: 505px;
+    top: 750px;
+    left: 555px;
     font-size: 0.8em;
 }
 
 #climb{
     position:absolute;
-    top: 806px;
-    left: 505px;
+    top: 775px;
+    left: 555px;
     font-size: 0.8em;
 }
 
 #pickLock{
     position:absolute;
-    top: 836px;
-    left: 505px;
+    top: 799px;
+    left: 555px;
     font-size: 0.8em;
 }
 
 #findTrap{
     position:absolute;
-    top: 866px;
-    left: 505px;
+    top: 823px;
+    left: 555px;
     font-size: 0.8em;
 }
 
 #disableTrap{
     position:absolute;
-    top: 896px;
-    left: 505px;
+    top: 846px;
+    left: 555px;
     font-size: 0.8em;
 }
 
 #forgeDoc{
     position:absolute;
-    top: 926px;
-    left: 505px;
+    top: 870px;
+    left: 555px;
     font-size: 0.8em;
 }
 
 #disguiseSelf{
     position:absolute;
-    top: 956px;
-    left: 505px;
+    top: 895px;
+    left: 555px;
     font-size: 0.8em;
 }
 
 #readLanguages{
     position:absolute;
-    top: 986px;
-    left: 505px;
+    top: 920px;
+    left: 555px;
     font-size: 0.8em;
 }
 
 #handlePoison{
     position:absolute;
-    top: 1016px;
-    left: 505px;
+    top: 945px;
+    left: 555px;
     font-size: 0.8em;
 }
 
 #castSpellScroll{
     position:absolute;
-    top: 1055px;
-    left: 505px;
+    top: 968px;
+    left: 555px;
     font-size: 0.8em;
 }
